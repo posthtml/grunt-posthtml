@@ -2,5 +2,5 @@ sudo: false
 language: node_js
 node_js:
   - "0.12"
-script:
-  - "grunt ci"
+before_script:
+  - npm install -g grunt-cli
