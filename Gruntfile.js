@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
     jshint: {
       all: [
         'Gruntfile.js',
@@ -20,6 +21,19 @@ module.exports = function(grunt) {
       ],
       options: {
         jshintrc: '.jshintrc'
+      }
+    },
+
+    jscs: {
+      all: [
+        'Gruntfile.js',
+        'tasks/*.js'
+      ],
+      options: {
+        config: '.jscsrc',
+        esnext: true, // If you use ES6 http://jscs.info/overview.html#esnext
+        verbose: true, // If you need output with rule names http://jscs.info/overview.html#verbose
+        fix: false // Autofix code style violations when possible.
       }
     },
 
@@ -61,12 +75,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-jscs');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean', 'posthtml', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jshint', 'jscs', 'test']);
 
 };
