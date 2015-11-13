@@ -1,4 +1,8 @@
-# grunt-posthtml
+# grunt-posthtml  [![Build Status][ci-img]][ci]
+
+[PostCSS postcss-mq-keyframes]: https://github.com/TCotton/grunt-posthtml)
+[ci-img]: https://travis-ci.org/TCotton/grunt-posthtml.svg
+[ci]: https://travis-ci.org/TCotton/grunt-posthtml
 
 > PostHMTL Grunt Plugin
 
