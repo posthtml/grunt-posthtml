@@ -1,0 +1,29 @@
+ignore:
+  'npm:uglify-js:20150824':
+    - 'burrito@0.2.12 > uglify-js@1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.326Z'
+    - 'bunker@0.1.2 > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+    - 'runforcover@0.0.2 > bunker@0.1.X > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+    - 'nodeunit@0.9.1 > tap@^0.7.1 > runforcover@~0.0.2 > bunker@0.1.X > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+  'npm:uglify-js:20151024':
+    - 'burrito@0.2.12 > uglify-js@1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+    - 'bunker@0.1.2 > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+    - 'runforcover@0.0.2 > bunker@0.1.X > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+    - 'nodeunit@0.9.1 > tap@^0.7.1 > runforcover@~0.0.2 > bunker@0.1.X > burrito@>=0.2.5 <0.3 > uglify-js@~1.1.1':
+        reason: waiting for npm burrito plugin author response
+        expires: '2015-12-13T19:49:40.327Z'
+patch: {}
+version: v1

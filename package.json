@@ -21,11 +21,12 @@
     "npm": ">=3.3.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "snyk test && grunt test"
   },
   "dependencies": {
     "posthtml-parser": "^0.1.1",
-    "posthtml-render": "^1.0.3"
+    "posthtml-render": "^1.0.3",
+    "snyk": "^1.1.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
