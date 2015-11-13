@@ -4,6 +4,9 @@
 [ci-img]: https://travis-ci.org/TCotton/grunt-posthtml.svg
 [ci]: https://travis-ci.org/TCotton/grunt-posthtml
 
+[![Dependency Status](https://david-dm.org/tcotton/grunt-posthtml.svg?style=flat-square)](https://david-dm.org/tcotton/grunt-posthtml)
+[![devDependency Status](https://david-dm.org/tcotton/grunt-posthtml/dev-status.svg?style=flat-square)](https://david-dm.org/tcotton/grunt-posthtml#info=devDependencies)
+
 > PostHMTL Grunt Plugin
 
 ## Getting Started
