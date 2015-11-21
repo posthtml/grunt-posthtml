@@ -8,6 +8,11 @@
 
 'use strict';
 
+var path = require('path');
+var posthtml = require('posthtml');
+var diff = require('diff');
+var chalk = require('chalk');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -16,12 +21,16 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('posthtml', 'PostHMTL Grunt Plugin', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
+      processors: [],
       punctuation: '.',
       separator: ', '
     });
 
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
+
+      //console.dir(f);
+
       // Concat specified files.
       var src = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).

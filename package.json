@@ -24,9 +24,9 @@
     "test": "snyk test && grunt test"
   },
   "dependencies": {
-    "posthtml-parser": "^0.1.1",
-    "posthtml-render": "^1.0.3",
-    "snyk": "^1.1.1"
+    "chalk": "^1.1.1",
+    "diff": "^2.2.1",
+    "posthtml": "^0.7.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -36,10 +36,11 @@
     "grunt-jscs": "^2.3.0",
     "load-grunt-tasks": "^3.3.0",
     "snyk": "^1.1.1",
-    "time-grunt": "^1.2.2",
-    "uglify-js": "^2.4.24"
+    "time-grunt": "^1.2.2"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
   "keywords": [
     "gruntplugin",
     "posthtml"
