@@ -65,25 +65,19 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     posthtml: {
-      default_options: {
-        options: {
-          processors: [
-            require('posthtml-doctype')({ doctype: 'HTML 5' })
-          ]
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      options: {
+        use: [
+          require('posthtml-doctype')({doctype: 'HTML 5'})
+        ],
+        dest: '/test/tmp'
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+      files: [
+        {
+          src: [
+            '/test/html/index.html'
+          ]
         }
-      }
+      ]
     },
 
     // Unit tests.
