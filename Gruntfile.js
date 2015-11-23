@@ -71,11 +71,10 @@ module.exports = function(grunt) {
         ],
         dest: '/test/tmp'
       },
+      expand: true,
       files: [
         {
-          src: [
-            '/test/html/index.html'
-          ]
+          src: ['/test/html/index.html'],
         }
       ]
     },

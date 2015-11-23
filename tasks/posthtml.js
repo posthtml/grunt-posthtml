@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     });
 
     // checks that a dest folder has been set, if not it will create a warning message
-    if(options.dest.length === 0) {
+    if (options.dest.length === 0) {
       grunt.fail.warn('PostHTML: you must set a destination directory in the options: dest: \'directory\'');
     }
 
@@ -58,9 +58,35 @@ module.exports = function(grunt) {
       grunt.file.mkdir(absolutePath(options.dest));
     }
 
+
+    //console.dir(this);
+
+
     this.files.forEach(function(file) {
 
-      //console.dir(file);
+   /*   if (!Array.isArray(file.orig.src)) {
+        return false;
+      }*/
+
+      console.dir(file);
+
+      // Concat specified files.
+      var src = file.orig.src[0].src.filter(function(filepath) {
+
+        var file = absolutePath(filepath);
+        // Warn on and remove invalid source files (if nonull was set).
+        if (!grunt.file.exists(file)) {
+          grunt.log.warn('Source file "' + file + '" not found.');
+          return false;
+        } else {
+          return true;
+        }
+      }).map(function(file) {
+        // Read file source.
+        return grunt.file.read(file);
+      });
+
+      console.dir(src);
 
     });
 
