@@ -29,6 +29,23 @@ function log(msg) {
   grunt.verbose.writeln(msg);
 }
 
+function posthtmlFun(plugins, html, options) {
+
+ /* console.log('plugins');
+  console.dir(plugins);
+  console.log('html');
+  console.dir(html);
+  console.log('options');
+  console.dir(options);*/
+
+  posthtml()
+    .use(plugins)
+    .process(html, options)
+    .then(function(result) {
+      console.dir(result.html);
+    });
+}
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -37,56 +54,50 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('posthtml', 'PostHMTL Grunt Plugin', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
+      use: [],
       process: '',
       parse: '',
       singleTags: [],
       closingSingleTag: '',
       skipParse: null,
-      sync: null,
-      use: [],
-      dest: ''
+      sync: null
     });
 
-    // checks that a dest folder has been set, if not it will create a warning message
-    if (options.dest.length === 0) {
-      grunt.fail.warn('PostHTML: you must set a destination directory in the options: dest: \'directory\'');
-    }
+    var plugins = options.use[0].length > 0 ? options.use[0] : null;
+    delete options.use;
 
-    // check for existence of destination directory
-    // if it doesn't exist, create it
-    if (!grunt.file.isDir(absolutePath(options.dest)) && options.dest.length > 0) {
-      grunt.file.mkdir(absolutePath(options.dest));
-    }
+    /*  // checks that a dest folder has been set, if not it will create a warning message
+     if (options.dest.length === 0) {
+     grunt.fail.warn('PostHTML: you must set a destination directory in the options: dest: \'directory\'');
+     }
 
-
-    //console.dir(this);
-
-
+     // check for existence of destination directory
+     // if it doesn't exist, create it
+     if (!grunt.file.isDir(absolutePath(options.dest)) && options.dest.length > 0) {
+     grunt.file.mkdir(absolutePath(options.dest));
+     }
+     */
     this.files.forEach(function(file) {
 
-   /*   if (!Array.isArray(file.orig.src)) {
+      if (!Array.isArray(file.orig.src)) {
         return false;
-      }*/
+      }
 
-      console.dir(file);
+      var filePath = file.orig.src[0].cwd;
+      var destination = absolutePath(file.orig.src[0].dest);
 
       // Concat specified files.
-      var src = file.orig.src[0].src.filter(function(filepath) {
+      file.orig.src[0].src.filter(function(filepath) {
 
-        var file = absolutePath(filepath);
+        var file = absolutePath(filePath) + filepath;
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(file)) {
           grunt.log.warn('Source file "' + file + '" not found.');
           return false;
         } else {
-          return true;
+          posthtmlFun(plugins, grunt.file.read(file), options);
         }
-      }).map(function(file) {
-        // Read file source.
-        return grunt.file.read(file);
       });
-
-      console.dir(src);
 
     });
 

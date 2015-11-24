@@ -67,14 +67,15 @@ module.exports = function(grunt) {
     posthtml: {
       options: {
         use: [
-          require('posthtml-doctype')({doctype: 'HTML 5'})
-        ],
-        dest: '/test/tmp'
+          require('posthtml-doctype')({doctype:  'HTML 5'})
+        ]
       },
-      expand: true,
       files: [
         {
-          src: ['/test/html/index.html'],
+          expand: true,     // Enable dynamic expansion.
+          cwd: '/test/html/',
+          src: ['index.html'],
+          dest: '/test/html/'
         }
       ]
     },
