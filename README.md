@@ -27,6 +27,8 @@ grunt.loadNpmTasks('grunt-posthtml');
 
 ## The "posthtml" task
 
+grunt-posthtml is a Grunt wrapper for the [PostHTML plugin](https://github.com/posthtml/posthtml)
+
 ### Overview
 In your project's Gruntfile, add a section named `posthtml` to the data object passed into `grunt.initConfig()`.
 
@@ -43,55 +45,32 @@ grunt.initConfig({
 });
 ```
 
+Here is an example of a configuration with three different plugins:
+
+```js
+  posthtml: {
+      options: {
+        use: [
+          require('posthtml-head-elements')({headElements: 'test/config/head.json'}),
+          require('posthtml-doctype')({doctype: 'HTML 5'})
+        ]
+      },
+      build: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: 'test/html/',
+          src: ['*.html'],
+          dest: 'test/tmp/'
+        }]
+      }
+    }
+```
+
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  posthtml: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  posthtml: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+Apart from use, which is a an array of PostHTML plugins, there are singleTags, closingSingleTag, skipParse and sync. The configuration and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)
 
 ## Release History
-_(Nothing yet)_
+
+ * 2015-11-26   v0.1.2-beta.0   Initial release

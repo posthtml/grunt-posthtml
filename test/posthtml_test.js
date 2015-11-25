@@ -47,6 +47,5 @@ exports.posthtml = {
     test.equal(actual, expected, 'HTML head elements should be inserted from the head.json file');
 
     test.done();
-
   }
 };
