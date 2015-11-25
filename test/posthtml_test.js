@@ -36,5 +36,17 @@ exports.posthtml = {
     test.equal(actual, expected, 'The doctype should be changed to HTML5');
 
     test.done();
+  },
+  head: function(test) {
+
+    test.expect(1);
+
+    var actual = grunt.file.read('test/tmp/test-head-elements.html');
+    var expected = grunt.file.read('test/expected/test-head-elements.html');
+
+    test.equal(actual, expected, 'HTML head elements should be inserted from the head.json file');
+
+    test.done();
+
   }
 };

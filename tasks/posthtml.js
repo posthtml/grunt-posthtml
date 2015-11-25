@@ -37,10 +37,10 @@ module.exports = function(grunt) {
 
     var plugins;
 
-    if (typeof options.use[0] !== 'function') {
+    if (Array.isArray(options.use.length) && options.use.length > 0) {
       grunt.log.warn('grunt-posthtml: You must specify the PostHTML plugins you wish to use in the configuration');
     } else {
-      plugins = options.use[0].length > 0 ? options.use[0] : null;
+      plugins = options.use.length > 0 ? options.use : null;
       delete options.use;
     }
 
@@ -50,8 +50,7 @@ module.exports = function(grunt) {
 
       var content = grunt.file.read(file.src[0]);
 
-      posthtml()
-        .use(plugins)
+      posthtml(plugins)
         .process(content)
         .then(function(result) {
           grunt.file.write(file.dest, result.html);
