@@ -47,5 +47,16 @@ exports.posthtml = {
     test.equal(actual, expected, 'HTML head elements should be inserted from the head.json file');
 
     test.done();
+  },
+  include: function(test) {
+
+    test.expect(1);
+
+    var actual = grunt.file.read('test/tmp/posthtml-include.html');
+    var expected = grunt.file.read('test/expected/posthtml-include.html');
+
+    test.equal(actual, expected, 'Uses the posthtml-include plugin to inject the button HTML file into the body');
+
+    test.done();
   }
 };

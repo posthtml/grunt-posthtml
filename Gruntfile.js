@@ -68,7 +68,8 @@ module.exports = function(grunt) {
       options: {
         use: [
           require('posthtml-head-elements')({headElements: 'test/config/head.json'}),
-          require('posthtml-doctype')({doctype: 'HTML 5'})
+          require('posthtml-doctype')({doctype: 'HTML 5'}),
+          require('posthtml-include')({encoding: 'utf-8'})
         ]
       },
       build: {
@@ -77,15 +78,6 @@ module.exports = function(grunt) {
           dot: true,
           cwd: 'test/html/',
           src: ['*.html'],
-          dest: 'test/tmp/'
-        }]
-      },
-      head: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: 'test/html/',
-          src: ['test-head-elements.html'],
           dest: 'test/tmp/'
         }]
       }
