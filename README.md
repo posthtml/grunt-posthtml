@@ -69,7 +69,7 @@ Here is an example of a configuration with three different plugins:
 
 ### Options
 
-Apart from use, which is a an array of PostHTML plugins, there are singleTags, closingSingleTag, skipParse and sync. The configuration and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)
+Apart from 'use', which is an array of PostHTML plugins, the others options are singleTags, closingSingleTag, skipParse and sync. The values and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)
 
 ## Release History
 

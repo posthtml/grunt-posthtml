@@ -50,8 +50,10 @@ module.exports = function(grunt) {
 
       var content = grunt.file.read(file.src[0]);
 
+      console.dir(options);
+
       posthtml(plugins)
-        .process(content)
+        .process(content, options)
         .then(function(result) {
           grunt.file.write(file.dest, result.html);
         }).catch(function(error) {
