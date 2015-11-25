@@ -10,6 +10,11 @@
 
 var posthtml = require('posthtml');
 
+/**
+ *
+ * @param file {string}
+ * @param grunt {object}
+ */
 function validation(file, grunt) {
 
   if (!file) {
@@ -40,7 +45,7 @@ module.exports = function(grunt) {
     if (Array.isArray(options.use.length) && options.use.length > 0) {
       grunt.log.warn('grunt-posthtml: You must specify the PostHTML plugins you wish to use in the configuration');
     } else {
-      plugins = options.use.length > 0 ? options.use : null;
+      plugins = options.use;
       delete options.use;
     }
 

@@ -8,24 +8,6 @@
 
 'use strict';
 
-var path = require('path');
-
-/**
- * creates absolute path
- * @param file {string}
- * @returns {*}
- */
-function absolutePath(file) {
-  return path.join(__dirname, file);
-}
-
-/**
- * @param {string} msg Log message
- */
-function log(msg) {
-  grunt.verbose.writeln(msg);
-}
-
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
