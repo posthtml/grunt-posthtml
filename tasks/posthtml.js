@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 
     var plugins;
 
-    if (!Array.isArray(options.use)) {
+    if (!Array.isArray(options.use) || options.use.length === 0) {
       grunt.log.warn('grunt-posthtml: You must specify the PostHTML plugins you wish to use in the configuration');
     } else {
       plugins = options.use;
