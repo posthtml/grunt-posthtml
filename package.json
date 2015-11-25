@@ -1,7 +1,7 @@
 {
   "name": "grunt-posthtml",
   "description": "PostHMTL Grunt Plugin",
-  "version": "0.1.1-beta.0",
+  "version": "0.1.2-beta.0",
   "homepage": "https://github.com/TCotton/grunt-posthtml",
   "author": {
     "name": "Andy Walpole",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
+    "cz-conventional-changelog": "^1.1.4",
     "grunt": "~0.4.5",
     "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-jshint": "^0.11.3",
@@ -43,7 +44,7 @@
     "load-grunt-tasks": "^3.3.0",
     "lodash-cli": "^3.10.1",
     "posthtml-doctype": "^1.1.1",
-    "snyk": "^1.1.1",
+    "snyk": "^1.3.1",
     "time-grunt": "^1.2.2",
     "version-bump-prompt": "^1.5.2"
   },
@@ -53,5 +54,10 @@
   "keywords": [
     "gruntplugin",
     "posthtml"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
