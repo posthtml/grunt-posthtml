@@ -10,8 +10,6 @@
 
 var path = require('path');
 var posthtml = require('posthtml');
-var diff = require('diff');
-var chalk = require('chalk');
 
 /**
  * creates absolute path
@@ -23,26 +21,41 @@ function absolutePath(file) {
 }
 
 /**
+ * check for existence of destination directory
+ * if it doesn't exist, create it
+ * @param folder {string}
+ */
+function checkDestFolder(folder, grunt) {
+  if (!grunt.file.isDir(absolutePath(folder))) {
+    grunt.file.mkdir(absolutePath(folder));
+  }
+  return absolutePath(folder);
+}
+
+/**
  * @param {string} msg Log message
  */
 function log(msg) {
   grunt.verbose.writeln(msg);
 }
 
-function posthtmlFun(plugins, html, options) {
+/**
+ *
+ * @param plugins {function}
+ * @param html {string}
+ * @param options {object}
+ * @param destination {string}
+ * @param grunt {object}
+ * @param filename {string}
+ */
 
- /* console.log('plugins');
-  console.dir(plugins);
-  console.log('html');
-  console.dir(html);
-  console.log('options');
-  console.dir(options);*/
+function posthtmlFun(plugins, html, options, destination, grunt, filename) {
 
   posthtml()
     .use(plugins)
     .process(html, options)
     .then(function(result) {
-      console.dir(result.html);
+      grunt.file.write(destination + filename, result.html);
     });
 }
 
@@ -66,71 +79,34 @@ module.exports = function(grunt) {
     var plugins = options.use[0].length > 0 ? options.use[0] : null;
     delete options.use;
 
-    /*  // checks that a dest folder has been set, if not it will create a warning message
-     if (options.dest.length === 0) {
-     grunt.fail.warn('PostHTML: you must set a destination directory in the options: dest: \'directory\'');
-     }
-
-     // check for existence of destination directory
-     // if it doesn't exist, create it
-     if (!grunt.file.isDir(absolutePath(options.dest)) && options.dest.length > 0) {
-     grunt.file.mkdir(absolutePath(options.dest));
-     }
-     */
     this.files.forEach(function(file) {
 
       if (!Array.isArray(file.orig.src)) {
+        grunt.log.warn('grunt-posthtml: Please read the documentation to ensure that your Grunt object syntax is correct');
         return false;
       }
 
       var filePath = file.orig.src[0].cwd;
-      var destination = absolutePath(file.orig.src[0].dest);
+      var destination = checkDestFolder(file.orig.src[0].dest, grunt);
+      console.log(destination);
 
       // Concat specified files.
-      file.orig.src[0].src.filter(function(filepath) {
+      file.orig.src[0].src.filter(function(filename) {
 
-        var file = absolutePath(filePath) + filepath;
+        console.log(filename);
+
+        var file = absolutePath(filePath) + filename;
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(file)) {
-          grunt.log.warn('Source file "' + file + '" not found.');
+          grunt.log.warn('grunt-posthtml: Source file "' + file + '" not found.');
           return false;
         } else {
-          posthtmlFun(plugins, grunt.file.read(file), options);
+          posthtmlFun(plugins, grunt.file.read(file), options, destination, grunt, filename);
         }
       });
 
     });
 
-    // Iterate over all specified file groups.
-    /* this.src.forEach(function(file) {
-
-     console.dir(file);*/
-
-    //console.dir(f);
-
-    /* // Concat specified files.
-     var src = f.src.filter(function(filepath) {
-     // Warn on and remove invalid source files (if nonull was set).
-     if (!grunt.file.exists(filepath)) {
-     grunt.log.warn('Source file "' + filepath + '" not found.');
-     return false;
-     } else {
-     return true;
-     }
-     }).map(function(filepath) {
-     // Read file source.
-     return grunt.file.read(filepath);
-     }).join(grunt.util.normalizelf(options.separator));
-
-     // Handle options.
-     src += options.punctuation;
-
-     // Write the destination file.
-     grunt.file.write(f.dest, src);
-
-     // Print a success message.*/
-    /*  grunt.log.writeln('File "' + f.dest + '" created.');
-     });*/
   });
 
 };
