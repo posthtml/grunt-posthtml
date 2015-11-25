@@ -80,6 +80,11 @@ module.exports = function(grunt) {
           src: ['*.html'],
           dest: 'test/tmp/'
         }]
+      },
+      single: {
+        files: [
+          {src: 'test/html2/single.html', dest: 'test/tmp/single.html'}
+        ]
       }
     },
 
@@ -88,7 +93,8 @@ module.exports = function(grunt) {
       tests: ['test/*_test.js']
     }
 
-  });
+  })
+  ;
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
