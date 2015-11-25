@@ -27,9 +27,13 @@ exports.posthtml = {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  build: function(test) {
     test.expect(1);
-    test.equal(1, 1, 'should describe what the default behavior is.');
+
+    var actual = grunt.file.read('test/tmp/index.html');
+    var expected = grunt.file.read('test/expected/index.html');
+
+    test.equal(actual, expected, 'The doctype should be changed to HTML5');
 
     test.done();
   }

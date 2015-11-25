@@ -40,25 +40,17 @@ function log(msg) {
   grunt.verbose.writeln(msg);
 }
 
-/**
- *
- * @param plugins {function}
- * @param html {string}
- * @param options {object}
- * @param destination {string}
- * @param grunt {object}
- * @param filename {string}
- */
+function validation(file, grunt) {
 
-function posthtmlFun(plugins, html, options, destination, grunt, filename) {
+  if (!file) {
+    grunt.log.warn('grunt-posthtml: No files have been specified');
+    return;
+  }
 
-  posthtml()
-    .use(plugins)
-    .process(html, options)
-    .then(function(result) {
-      console.dir(result.html);
-      // grunt.file.write(destination + filename, result.html);
-    });
+  if (!grunt.file.exists(file)) {
+    grunt.log.warn('grunt-posthtml: Source file "' + file + '" not found.');
+  }
+
 }
 
 module.exports = function(grunt) {
@@ -84,14 +76,7 @@ module.exports = function(grunt) {
 
     this.files.forEach(function(file) {
 
-      if (!file.src[0]) {
-        grunt.log.warn('grunt-posthtml: No files have been specified');
-        return;
-      }
-
-      if (!grunt.file.exists(file.src[0])) {
-        grunt.log.warn('grunt-posthtml: Source file "' + file + '" not found.');
-      }
+      validation(file.src[0], grunt);
 
       var content = grunt.file.read(file.src[0]);
 
@@ -101,7 +86,7 @@ module.exports = function(grunt) {
         .then(function(result) {
           grunt.file.write(file.dest, result.html);
         }).catch(function(error) {
-        //console.dir(error);
+        console.dir(error);
       });
 
     });

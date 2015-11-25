@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      tests: ['test/tmp/']
     },
 
     // Configuration to be run (and then tested).
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           dot: true,
           cwd: 'test/html/',
           src: ['*.html'],
-          dest: 'test/build/'
+          dest: 'test/tmp/'
         }]
       }
     },
