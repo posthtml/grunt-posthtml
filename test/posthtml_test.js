@@ -58,16 +58,16 @@ exports.posthtml = {
     test.equal(actual, expected, 'Uses the posthtml-include plugin to inject the button HTML file into the body');
 
     test.done();
-  },
-  single: function(test) {
-
-    test.expect(1);
-
-    var actual = grunt.file.read('test/tmp/single.html');
-    var expected = grunt.file.read('test/expected/single.html');
-
-    test.equal(actual, expected, 'Checks to make sure that static mapping works correctly');
-
-    test.done();
   }
+  /*  single: function(test) {
+
+   test.expect(1);
+
+   var actual = grunt.file.read('test/tmp/single.html');
+   var expected = grunt.file.read('test/expected/single.html');
+
+   test.equal(actual, expected, 'Checks to make sure that static mapping works correctly');
+
+   test.done();
+   }*/
 };

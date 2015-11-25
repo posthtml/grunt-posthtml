@@ -68,25 +68,6 @@ Here is an example of a configuration with three different plugins:
     }
 ```
 
-Alternatively you can use static mapping if you only want to access a single file:
-
-```js
- posthtml: {
-      options: {
-        use: [
-          require('posthtml-head-elements')({headElements: 'test/config/head.json'}),
-          require('posthtml-doctype')({doctype: 'HTML 5'}),
-          require('posthtml-include')({encoding: 'utf-8'})
-        ]
-      },
-      single: {
-        files: [
-          {src: 'test/html2/single.html', dest: 'test/tmp/single.html'}
-        ]
-      }
-    },
-```
-
 ### Options
 
 Apart from 'use', which is an array of PostHTML plugins, the others options are singleTags, closingSingleTag, skipParse and sync. The values and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)
