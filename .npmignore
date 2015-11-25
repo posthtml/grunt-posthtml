@@ -8,3 +8,6 @@ npm-debug.log
 .synk
 .travis.yml
 tmp
+.coveralls.yml
+Gruntfile.js
+README.md

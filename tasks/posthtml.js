@@ -8,37 +8,7 @@
 
 'use strict';
 
-var path = require('path');
 var posthtml = require('posthtml');
-
-/**
- * creates absolute path
- * @param file {string}
- * @returns {*}
- */
-function absolutePath(file) {
-  return path.join(process.cwd(), file);
-}
-
-/**
- * check for existence of destination directory
- * if it doesn't exist, create it
- * @param folder {string}
- * @param grunt {object}
- */
-function checkDestFolder(folder, grunt) {
-  if (!grunt.file.isDir(absolutePath(folder))) {
-    grunt.file.mkdir(absolutePath(folder));
-  }
-  return absolutePath(folder);
-}
-
-/**
- * @param {string} msg Log message
- */
-function log(msg) {
-  grunt.verbose.writeln(msg);
-}
 
 function validation(file, grunt) {
 

@@ -1,7 +1,7 @@
 {
   "maxparams": 5,
   "maxdepth": 5,
-  "maxstatements": 6,
+  "maxstatements": 7,
   "maxerr": 10,
   "passfail": false,
   "smarttabs": true,
