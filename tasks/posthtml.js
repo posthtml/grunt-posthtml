@@ -24,6 +24,7 @@ function absolutePath(file) {
  * check for existence of destination directory
  * if it doesn't exist, create it
  * @param folder {string}
+ * @param grunt {object}
  */
 function checkDestFolder(folder, grunt) {
   if (!grunt.file.isDir(absolutePath(folder))) {
@@ -55,54 +56,52 @@ function posthtmlFun(plugins, html, options, destination, grunt, filename) {
     .use(plugins)
     .process(html, options)
     .then(function(result) {
-      grunt.file.write(destination + filename, result.html);
+      console.dir(result.html);
+      // grunt.file.write(destination + filename, result.html);
     });
 }
 
 module.exports = function(grunt) {
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-
   grunt.registerMultiTask('posthtml', 'PostHMTL Grunt Plugin', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       use: [],
-      process: '',
-      parse: '',
       singleTags: [],
-      closingSingleTag: '',
+      closingSingleTag: 'default',
       skipParse: null,
       sync: null
     });
 
-    var plugins = options.use[0].length > 0 ? options.use[0] : null;
-    delete options.use;
+    var plugins;
+
+    if (typeof options.use[0] !== 'function') {
+      grunt.log.warn('grunt-posthtml: You must specify the PostHTML plugins you wish to use in the configuration');
+    } else {
+      plugins = options.use[0].length > 0 ? options.use[0] : null;
+      delete options.use;
+    }
 
     this.files.forEach(function(file) {
 
-      if (!Array.isArray(file.orig.src)) {
-        grunt.log.warn('grunt-posthtml: Please read the documentation to ensure that your Grunt object syntax is correct');
-        return false;
+      if (!file.src[0]) {
+        grunt.log.warn('grunt-posthtml: No files have been specified');
+        return;
       }
 
-      var filePath = file.orig.src[0].cwd;
-      var destination = checkDestFolder(file.orig.src[0].dest, grunt);
-      console.log(destination);
+      if (!grunt.file.exists(file.src[0])) {
+        grunt.log.warn('grunt-posthtml: Source file "' + file + '" not found.');
+      }
 
-      // Concat specified files.
-      file.orig.src[0].src.filter(function(filename) {
+      var content = grunt.file.read(file.src[0]);
 
-        console.log(filename);
-
-        var file = absolutePath(filePath) + filename;
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(file)) {
-          grunt.log.warn('grunt-posthtml: Source file "' + file + '" not found.');
-          return false;
-        } else {
-          posthtmlFun(plugins, grunt.file.read(file), options, destination, grunt, filename);
-        }
+      posthtml()
+        .use(plugins)
+        .process(content)
+        .then(function(result) {
+          grunt.file.write(file.dest, result.html);
+        }).catch(function(error) {
+        //console.dir(error);
       });
 
     });

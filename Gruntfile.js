@@ -70,14 +70,15 @@ module.exports = function(grunt) {
           require('posthtml-doctype')({doctype: 'HTML 5'})
         ]
       },
-      files: [
-        {
+      build: {
+        files: [{
           expand: true,
-          cwd: '/test/html/',
-          src: ['index.html'],
-          dest: '/test/build/'
-        }
-      ]
+          dot: true,
+          cwd: 'test/html/',
+          src: ['*.html'],
+          dest: 'test/build/'
+        }]
+      }
     },
 
     // Unit tests.
