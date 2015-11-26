@@ -87,6 +87,51 @@ Alternatively you can use static mapping if you only want to access a single fil
     },
 ```
 
+If you are using template strings to add a file path to a PostHTML plugin, then you will need to resolve the path in your Gruntfile configuration. As an example, instead of using this configuration:
+
+```js
+ posthtml: {
+     options: {
+         use: [
+             require('posthtml-head-elements')({
+                 headElements: '<%= yeoman.dist %>/config/head_elements.json'
+             }),
+             require('posthtml-doctype')({
+                 doctype: 'HTML 5'
+             })
+         ]
+     },
+     build: {
+         files: [{
+             src: '<%= yeoman.dist %>/index.html',
+             dest: '<%= yeoman.dist %>/index.html'
+         }]
+     }
+ }
+```
+
+You will need to write the path like this:
+
+```js
+posthtml: {
+    options: {
+        use: [
+            require('posthtml-head-elements')({
+                headElements: path.resolve(__dirname, yeomanConfig.app) + '/config/head_elements.json'
+            }),
+            require('posthtml-doctype')({
+                doctype: 'HTML 5'
+            })
+        ]
+    },
+    build: {
+        files: [{
+            src: '<%= yeoman.dist %>/index.html',
+            dest: '<%= yeoman.dist %>/index.html'
+        }]
+    }
+```
+
 ### Options
 
 Apart from 'use', which is an array of PostHTML plugins, the others options are singleTags, closingSingleTag, skipParse and sync. The values and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)

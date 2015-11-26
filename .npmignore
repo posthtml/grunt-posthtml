@@ -5,9 +5,8 @@ npm-debug.log
 .jscsrc
 .jshintignore
 .jshintrc
-.synk
+.snyk
 .travis.yml
 tmp
-.coveralls.yml
 Gruntfile.js
 README.md
