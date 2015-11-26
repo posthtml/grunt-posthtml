@@ -8,7 +8,7 @@
 [ci-img]: https://travis-ci.org/TCotton/grunt-posthtml.svg
 [ci]: https://travis-ci.org/TCotton/grunt-posthtml
 
-> PostHMTL Grunt Plugin
+> [PostHTML](https://github.com/posthtml/posthtml) Grunt Plugin
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
