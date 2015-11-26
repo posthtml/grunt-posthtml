@@ -92,5 +92,5 @@ Alternatively you can use static mapping if you only want to access a single fil
 Apart from 'use', which is an array of PostHTML plugins, the others options are singleTags, closingSingleTag, skipParse and sync. The values and purpose of these options is exactly the same as in the parent [PostHTML plugin](https://github.com/posthtml/posthtml#options)
 
 ## Release History
-
+ * 2015-11-26   v0.3.0          First release on npm.com
  * 2015-11-26   v0.1.2-beta.0   Initial release
