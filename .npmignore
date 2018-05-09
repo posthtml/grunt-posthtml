@@ -10,3 +10,4 @@ npm-debug.log
 tmp
 Gruntfile.js
 README.md
+.nvmrc

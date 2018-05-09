@@ -138,4 +138,7 @@ Apart from 'use', which is an array of PostHTML plugins, the others options are 
 
 ## Release History
  * 2015-11-26   v0.3.0          First release on npm.com
+ 
  * 2015-11-26   v0.1.2-beta.0   Initial release
+ 
+ * 2018-05-09   v1.0.0          Updated all dependencies, devDependencies and peerDependencies
