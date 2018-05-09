@@ -1,7 +1,7 @@
 {
   "name": "grunt-posthtml",
   "description": "PostHMTL Grunt Plugin",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/TCotton/grunt-posthtml",
   "author": {
     "name": "Andy Walpole",
@@ -17,36 +17,36 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=4.4.0",
-    "npm": ">=3.8.2"
+    "node": ">=6.11.3",
+    "npm": ">=3.10.10"
   },
   "scripts": {
     "build": "bump --prompt",
     "test": "snyk test && jscs test/posthtml_test.js && jscs tasks/posthtml.js && jshint test/posthtml_test.js && jshint tasks/posthtml.js && grunt test"
   },
   "dependencies": {
-    "posthtml": "^0.8.0"
+    "posthtml": "^0.11.3"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.5",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "grunt": "^1.0.2",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt-jscs": "^2.8.0",
-    "jscs": "^2.11.0",
-    "jshint": "^2.9.1",
-    "load-grunt-tasks": "^3.4.1",
-    "posthtml-custom-elements": "^1.0.3",
+    "grunt-jscs": "^3.0.1",
+    "jscs": "^3.0.7",
+    "jshint": "^2.9.5",
+    "load-grunt-tasks": "^4.0.0",
+    "posthtml-custom-elements": "^1.1.1",
     "posthtml-doctype": "^1.1.1",
-    "posthtml-head-elements": "^0.4.1",
-    "posthtml-include": "^1.0.2",
-    "snyk": "^1.13.2",
-    "time-grunt": "^1.3.0",
-    "version-bump-prompt": "^1.5.2"
+    "posthtml-head-elements": "^0.5.0",
+    "posthtml-include": "^1.1.0",
+    "snyk": "^1.80.0",
+    "time-grunt": "^1.4.0",
+    "version-bump-prompt": "^4.1.0"
   },
   "peerDependencies": {
-    "grunt": "^1.0.1"
+    "grunt": "^1.0.2"
   },
   "keywords": [
     "gruntplugin",
