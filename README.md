@@ -5,8 +5,8 @@
 [![devDependency Status](https://david-dm.org/posthtml/grunt-posthtml/dev-status.svg?style=flat-square)](https://david-dm.org/posthtml/grunt-posthtml#info=devDependencies)
 [![npm version](https://badge.fury.io/js/grunt-posthtml.svg)](http://badge.fury.io/js/grunt-posthtml)
 
-[ci-img]: https://travis-ci.org/TCotton/grunt-posthtml.svg
-[ci]: https://travis-ci.org/TCotton/grunt-posthtml
+[ci-img]: https://travis-ci.org/posthtml/grunt-posthtml.svg
+[ci]: https://travis-ci.org/posthtml/grunt-posthtml
 
 > [PostHTML](https://github.com/posthtml/posthtml) Grunt Plugin
 
