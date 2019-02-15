@@ -1,8 +1,8 @@
 # grunt-posthtml  
 
 [![Build Status][ci-img]][ci]
-[![Dependency Status](https://david-dm.org/tcotton/grunt-posthtml.svg?style=flat-square)](https://david-dm.org/tcotton/grunt-posthtml)
-[![devDependency Status](https://david-dm.org/tcotton/grunt-posthtml/dev-status.svg?style=flat-square)](https://david-dm.org/tcotton/grunt-posthtml#info=devDependencies)
+[![Dependency Status](https://david-dm.org/posthtml/grunt-posthtml.svg?style=flat-square)](https://david-dm.org/posthtml/grunt-posthtml)
+[![devDependency Status](https://david-dm.org/posthtml/grunt-posthtml/dev-status.svg?style=flat-square)](https://david-dm.org/posthtml/grunt-posthtml#info=devDependencies)
 [![npm version](https://badge.fury.io/js/grunt-posthtml.svg)](http://badge.fury.io/js/grunt-posthtml)
 
 [ci-img]: https://travis-ci.org/TCotton/grunt-posthtml.svg

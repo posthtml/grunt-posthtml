@@ -2,7 +2,7 @@
   "name": "grunt-posthtml",
   "description": "PostHMTL Grunt Plugin",
   "version": "2.0.0",
-  "homepage": "https://github.com/TCotton/grunt-posthtml",
+  "homepage": "https://github.com/posthtml/grunt-posthtml",
   "author": {
     "name": "Andy Walpole",
     "email": "me@andywalpole.me",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:TCotton/grunt-posthtml.git"
+    "url": "git@github.com:posthtml/grunt-posthtml.git"
   },
   "bugs": {
-    "url": "https://github.com/TCotton/grunt-posthtml/issues"
+    "url": "https://github.com/posthtml/grunt-posthtml/issues"
   },
   "license": "MIT",
   "engines": {
@@ -29,20 +29,20 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
-    "grunt": "^1.0.2",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-jscs": "^3.0.1",
     "jscs": "^3.0.7",
-    "jshint": "^2.9.5",
+    "jshint": "^2.10.1",
     "load-grunt-tasks": "^4.0.0",
-    "posthtml-custom-elements": "^1.1.1",
+    "posthtml-custom-elements": "^1.1.2",
     "posthtml-doctype": "^1.1.1",
     "posthtml-head-elements": "^0.5.0",
-    "posthtml-include": "^1.1.0",
-    "time-grunt": "^1.4.0",
-    "version-bump-prompt": "^4.1.0"
+    "posthtml-include": "^1.2.0",
+    "time-grunt": "^2.0.0",
+    "version-bump-prompt": "^4.2.2"
   },
   "peerDependencies": {
     "grunt": "^1.0.2"
