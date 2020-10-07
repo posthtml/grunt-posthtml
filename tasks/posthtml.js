@@ -49,16 +49,18 @@ module.exports = function(grunt) {
       delete options.use;
     }
 
+    var done = this.async();
     this.files.forEach(function(file) {
 
       validation(file.src[0], grunt);
 
       var content = grunt.file.read(file.src[0]);
 
-      posthtml(plugins)
-        .process(content, options)
+      Promise.resolve(posthtml(plugins)
+        .process(content, options))
         .then(function(result) {
           grunt.file.write(file.dest, result.html);
+          done();
         });
 
     });
