@@ -7,7 +7,7 @@
  */
 
 'use strict';
-
+var path = require('path');
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -49,7 +49,10 @@ module.exports = function(grunt) {
     posthtml: {
       options: {
         use: [
-          require('posthtml-head-elements')({headElements: 'test/config/head.json'}),
+          function(tree) {
+            return tree;
+          },
+          require('posthtml-head-elements')({headElements: path.join(__dirname, 'test/config/head.json')}),
           require('posthtml-doctype')({doctype: 'HTML 5'}),
           require('posthtml-include')({encoding: 'utf-8'})
         ]
