@@ -1,9 +1,6 @@
 # grunt-posthtml  
 
-[![Build Status][ci-img]][ci][![node](https://img.shields.io/node/v/grunt-posthtml.svg?style=flat-square)]()[![npm version](https://img.shields.io/npm/v/grunt-posthtml.svg?style=flat-square)](https://www.npmjs.com/package/grunt-posthtml)
-
-[ci-img]: https://travis-ci.org/posthtml/grunt-posthtml.svg?style=flat-square
-[ci]: https://travis-ci.org/posthtml/grunt-posthtml
+[![Travis Build Status](https://img.shields.io/travis/posthtml/grunt-posthtml/master.svg?style=flat-square&label=unix)](https://travis-ci.org/posthtml/grunt-posthtml)[![node](https://img.shields.io/node/v/grunt-posthtml.svg?style=flat-square)]()[![npm version](https://img.shields.io/npm/v/grunt-posthtml.svg?style=flat-square)](https://www.npmjs.com/package/grunt-posthtml)
 
 > [PostHTML](https://github.com/posthtml/posthtml) Grunt Plugin
 
