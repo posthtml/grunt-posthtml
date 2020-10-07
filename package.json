@@ -20,7 +20,6 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "bump --prompt",
     "test": "jshint test/posthtml_test.js && jshint tasks/posthtml.js && grunt test"
   },
   "dependencies": {
@@ -39,8 +38,7 @@
     "posthtml-doctype": "^1.1.1",
     "posthtml-head-elements": "^0.5.1",
     "posthtml-include": "^1.4.3",
-    "time-grunt": "^2.0.0",
-    "version-bump-prompt": "^6.1.0"
+    "time-grunt": "^2.0.0"
   },
   "peerDependencies": {
     "grunt": "^1.0.2"
