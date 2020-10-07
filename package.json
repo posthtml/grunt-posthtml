@@ -17,8 +17,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.11.3",
-    "npm": ">=3.10.10"
+    "node": ">=10"
   },
   "scripts": {
     "build": "bump --prompt",

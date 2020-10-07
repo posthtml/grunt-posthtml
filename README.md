@@ -1,11 +1,8 @@
 # grunt-posthtml  
 
-[![Build Status][ci-img]][ci]
-[![Dependency Status](https://david-dm.org/posthtml/grunt-posthtml.svg?style=flat-square)](https://david-dm.org/posthtml/grunt-posthtml)
-[![devDependency Status](https://david-dm.org/posthtml/grunt-posthtml/dev-status.svg?style=flat-square)](https://david-dm.org/posthtml/grunt-posthtml#info=devDependencies)
-[![npm version](https://badge.fury.io/js/grunt-posthtml.svg)](http://badge.fury.io/js/grunt-posthtml)
+[![Build Status][ci-img]][ci][![node](https://img.shields.io/node/v/grunt-posthtml.svg?style=flat-square)]()[![npm version](https://img.shields.io/npm/v/grunt-posthtml.svg?style=flat-square)](https://www.npmjs.com/package/grunt-posthtml)
 
-[ci-img]: https://travis-ci.org/posthtml/grunt-posthtml.svg
+[ci-img]: https://travis-ci.org/posthtml/grunt-posthtml.svg?style=flat-square
 [ci]: https://travis-ci.org/posthtml/grunt-posthtml
 
 > [PostHTML](https://github.com/posthtml/posthtml) Grunt Plugin
