@@ -37,7 +37,7 @@
     "posthtml-custom-elements": "^1.1.2",
     "posthtml-doctype": "^1.1.1",
     "posthtml-head-elements": "^0.5.1",
-    "posthtml-include": "^1.4.3",
+    "posthtml-include": "^1.5.0",
     "time-grunt": "^2.0.0"
   },
   "peerDependencies": {
