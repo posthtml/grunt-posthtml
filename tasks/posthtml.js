@@ -61,6 +61,9 @@ module.exports = function(grunt) {
         .then(function(result) {
           grunt.file.write(file.dest, result.html);
           done();
+        })
+        .catch(error => {
+          grunt.fail.warn(error);
         });
 
     });
