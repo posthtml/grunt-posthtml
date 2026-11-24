@@ -1,3 +1,7 @@
+> [!WARNING]
+> **This package is no longer maintained.** It will not receive updates, fixes or support.
+> PostHTML itself can be used directly: https://github.com/posthtml/posthtml
+
 # grunt-posthtml  
 
 [![Travis Build Status](https://img.shields.io/travis/posthtml/grunt-posthtml/master.svg?style=flat-square&label=unix)](https://travis-ci.org/posthtml/grunt-posthtml)[![node](https://img.shields.io/node/v/grunt-posthtml.svg?style=flat-square)]()[![npm version](https://img.shields.io/npm/v/grunt-posthtml.svg?style=flat-square)](https://www.npmjs.com/package/grunt-posthtml)
